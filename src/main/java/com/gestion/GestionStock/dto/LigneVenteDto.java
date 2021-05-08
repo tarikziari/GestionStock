@@ -20,18 +20,24 @@ public class LigneVenteDto {
 	
 	private BigDecimal prixUnitaire;
 	
-	public static LigneVenteDto fromEntity(LigneVente lignevente) {
-		if(lignevente ==  null) {
+	private ArticleDto article;
+	
+	private Integer identreprise ;
+	
+	public static LigneVenteDto fromEntity(LigneVente ligneVente) {
+		if(ligneVente ==  null) {
 			return null;
 		}
 		return LigneVenteDto.builder()
-				.id(lignevente.getId())
-				.vente(VentesDto.fromEnity(lignevente.getVente()))
-				.quantite(lignevente.getQuantite())	
-				.prixUnitaire(lignevente.getPrixUnitaire())
+				.id(ligneVente.getId())
+				.vente(VentesDto.fromEnity(ligneVente.getVente()))
+				.quantite(ligneVente.getQuantite())	
+				.prixUnitaire(ligneVente.getPrixUnitaire())
+				.identreprise(ligneVente.getIdentreprise())
 				.build();
 		}
 	public static LigneVente toEntity(LigneVenteDto ligneventeDto) {
+		
 		if (ligneventeDto == null) {
 			return null;
 		}
@@ -40,9 +46,14 @@ public class LigneVenteDto {
 		//lignevente.setVente(ligneventeDto.getVente());
 		lignevente.setQuantite(ligneventeDto.getQuantite());
 		lignevente.setPrixUnitaire(ligneventeDto.getPrixUnitaire());
+		lignevente.setIdentreprise(ligneventeDto.getIdentreprise());
+		
 		return lignevente;
 		
 		
 	}
+
+	
+
 	
 }

@@ -28,6 +28,7 @@ public class EntrepriseDto {
 	
 	private String siteWeb;
 	
+	private Integer identreprise;
 	@JsonIgnore
 	private List<UtilisateurDto> utilisateurs;
 	
@@ -44,12 +45,13 @@ public class EntrepriseDto {
 				.email(entreprise.getEmail())
 				.numTel(entreprise.getNumTel())
 				.siteWeb(entreprise.getSiteWeb())
+				.identreprise(entreprise.getIdentreprise())
 				.build();		
 	}
 	
 	
-	@SuppressWarnings("unused")
-	private static Entreprise toEntity(EntrepriseDto entrepriseDto) {
+	
+	public	static Entreprise toEntity(EntrepriseDto entrepriseDto) {
 		if(entrepriseDto == null) {
 			return null;
 		}
@@ -58,11 +60,11 @@ public class EntrepriseDto {
 		entreprise.setId(entrepriseDto.getId());
 		entreprise.setNumTel(entrepriseDto.getNom());
 		entreprise.setDescription(entrepriseDto.getDescription());
-		//entreprise.set
 		entreprise.setCodeFiscal(entrepriseDto.getCodeFiscal());
 		entreprise.setEmail(entrepriseDto.getEmail());
 		entreprise.setNumTel(entreprise.getNumTel());
 		entreprise.setSiteWeb(entrepriseDto.getSiteWeb());
+		entreprise.setIdentreprise(entrepriseDto.getIdentreprise());
 		
 		return entreprise;
 		

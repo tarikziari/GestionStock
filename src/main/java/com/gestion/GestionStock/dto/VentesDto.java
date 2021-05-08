@@ -1,7 +1,9 @@
 package com.gestion.GestionStock.dto;
 
 import java.time.Instant;
+import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.gestion.GestionStock.model.Ventes;
 
 import lombok.Builder;
@@ -19,6 +21,14 @@ public class VentesDto {
 	
 	private String commentaire;
 	
+	private Integer identreprise;
+	
+	
+	@JsonIgnore
+	private List<LigneVenteDto> ligneVente;
+	
+
+	
 	public static VentesDto fromEnity(Ventes ventes) {
 		if(ventes == null) {
 			return null;
@@ -28,9 +38,12 @@ public class VentesDto {
 				.code(ventes.getCode())
 				.dateVente(ventes.getDateVente())
 				.commentaire(ventes.getCommentaire())
+				.identreprise(ventes.getIdentreprise())
 				.build();	
 	}
+	
 	public static Ventes toEntity(VentesDto ventesDto) {
+		
 		if(ventesDto == null) {
 			return null;
 		}
@@ -39,8 +52,11 @@ public class VentesDto {
 		ventes.setCode(ventesDto.getCode());
 		ventes.setDateVente(ventesDto.getDateVente());
 		ventes.setCommentaire(ventesDto.getCommentaire());
+		ventes.setIdentreprise(ventesDto.getIdentreprise());
 		return null;
 		
 	}
+
+
 	
 }

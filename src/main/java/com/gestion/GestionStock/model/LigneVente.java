@@ -27,8 +27,12 @@ public class LigneVente extends AbstractEntity {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -4398861402428501257L;
+	private static final long serialVersionUID = 1L;
 
+	@ManyToOne
+	@JoinColumn(name="idarticle")
+	private Article article;
+	
 	@ManyToOne
 	@JoinColumn(name="idvente")
 	private Ventes vente;
@@ -39,6 +43,8 @@ public class LigneVente extends AbstractEntity {
 	@Column(name="prixunitaire")
 	private BigDecimal prixUnitaire;
 
-
+	@Column(name="identreprise")
+	private Integer identreprise;
+	
 
 }

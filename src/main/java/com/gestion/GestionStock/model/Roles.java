@@ -1,5 +1,7 @@
 package com.gestion.GestionStock.model;
 
+
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -27,6 +29,9 @@ public class Roles extends AbstractEntity {
 
 	@Column(name="rolename")
 	private String roleName;
+	
+	@Column(name="identreprise")
+	private Integer identreprise;
 	
 	@ManyToOne
 	@JoinColumn(name="idutilisateur")

@@ -20,10 +20,11 @@ import lombok.NoArgsConstructor;
 @Table(name="Ventes")
 public class Ventes extends AbstractEntity{
 	
+
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -2009052080339086824L;
+	private static final long serialVersionUID = 1L;
 
 	//fixme
 	@Column(name="code")
@@ -35,4 +36,6 @@ public class Ventes extends AbstractEntity{
 	@Column(name="commentaire")
 	private String commentaire;
 	
+	@Column(name="identreprise")
+	private Integer identreprise;
 }

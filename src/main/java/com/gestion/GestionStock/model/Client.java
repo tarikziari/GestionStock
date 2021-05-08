@@ -34,8 +34,6 @@ public class Client extends AbstractEntity {
 	@Column(name="prenom")
 	private String Prenom;
 	
-	//private Adresse adresse;
-
 	@Embedded
 	private Adresse adresse;
 	
@@ -47,6 +45,9 @@ public class Client extends AbstractEntity {
 	
 	@Column(name="tel")
 	private String Tel;
+	
+	@Column(name="identreprise")
+	private Integer identreprise;
 	
 	@OneToMany(mappedBy="client")
 	private List<CommandeClient> commandeClients;

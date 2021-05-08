@@ -12,8 +12,13 @@ public class CategorieValidator {
 	public static List<String> validate(CategorieDto categorieDto){
 		List<String> errors =new ArrayList<>();
 		
+		if(categorieDto==null) {
+			errors.add("Veuillez renseigner le code de la categories");
+			return errors;
+		}
+		
 		if (categorieDto == null || !StringUtils.hasLength(categorieDto.getCode())) {
-			errors.add("Veuillez renseiner le code de la categories");
+			errors.add("Veuillez renseigner le code de la categories");
 			
 		}
 		return errors;

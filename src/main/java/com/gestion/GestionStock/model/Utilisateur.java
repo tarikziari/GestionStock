@@ -15,19 +15,15 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper=true)
 @Entity
 @Table(name="Utilisateur")
-
+@SuppressWarnings("serial")
 public class Utilisateur extends AbstractEntity {
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 4904437104267998722L;
 
 	@Column(name="nom")
 	private String nom;
@@ -53,9 +49,14 @@ public class Utilisateur extends AbstractEntity {
 	@ManyToOne
 	@JoinColumn(name="identreprise")
 	private Entreprise entreprise;
+
+	
 	
 	@OneToMany(mappedBy="utilisateur")
 	private List<Roles> roles;
+
+
+
 
 	
 }

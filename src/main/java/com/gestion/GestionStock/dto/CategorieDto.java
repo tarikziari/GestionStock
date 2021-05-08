@@ -7,13 +7,9 @@ import com.gestion.GestionStock.model.Categorie;
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 @Builder
 @Data
-@Getter
-@Setter
 public class CategorieDto {
 	
 	private Integer id;
@@ -25,7 +21,8 @@ public class CategorieDto {
 
 	@JsonIgnore
 	private List<ArticleDto> articles;
-	
+
+	private Integer identreprise;
 	
 	public static CategorieDto fromEntity(Categorie categorie) {
 	
@@ -37,6 +34,7 @@ public class CategorieDto {
 				.id(categorie.getId())
 				.code(categorie.getCode())
 				.designation(categorie.getDesignation())
+				.identreprise(categorie.getIdentreprise())
 				.build();
 		}
 	
@@ -44,7 +42,6 @@ public class CategorieDto {
 		
 		if(categorieDto == null) {
 			return null;
-			//TODO THROW AN EXCPTION
 		}
 		Categorie categorie =new Categorie();
 		categorie.setId(categorieDto.getId());
@@ -54,6 +51,9 @@ public class CategorieDto {
 		return categorie;
 
 	}
+
+
+
 
 
 	
